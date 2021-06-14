@@ -58,6 +58,7 @@ namespace WinFormsApp1
             this.btnfraction = new System.Windows.Forms.Button();
             this.btnequal = new System.Windows.Forms.Button();
             this.txtbx = new System.Windows.Forms.TextBox();
+            this.lbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnmc
@@ -355,11 +356,21 @@ namespace WinFormsApp1
             this.txtbx.Size = new System.Drawing.Size(329, 69);
             this.txtbx.TabIndex = 3;
             // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.Location = new System.Drawing.Point(293, 15);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(38, 15);
+            this.lbl.TabIndex = 31;
+            this.lbl.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(358, 450);
+            this.Controls.Add(this.lbl);
             this.Controls.Add(this.btnequal);
             this.Controls.Add(this.btnfraction);
             this.Controls.Add(this.btnpercent);
@@ -429,6 +440,7 @@ namespace WinFormsApp1
         private System.Windows.Forms.Button btnfraction;
         private System.Windows.Forms.Button btnequal;
         private System.Windows.Forms.TextBox txtbx;
+        private System.Windows.Forms.Label lbl;
     }
 }
 
