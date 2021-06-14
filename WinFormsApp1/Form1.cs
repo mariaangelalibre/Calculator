@@ -61,5 +61,20 @@ namespace WinFormsApp1
         {
             txtbx.Text = txtbx.Text + btn7.Text;
         }
+
+        private void txtbx_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void lbl_Click(object sender, EventArgs e)
+        {
+            lbl.Text = txtbx.Text;
+        }
+
+        private void btn0_Click(object sender, EventArgs e)
+        {
+            txtbx.Text = txtbx.Text + btn0.Text;
+        }
+    }
     }
 }

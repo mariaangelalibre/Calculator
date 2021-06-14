@@ -123,6 +123,7 @@ namespace WinFormsApp1
             this.btn0.TabIndex = 8;
             this.btn0.Text = "0";
             this.btn0.UseVisualStyleBackColor = true;
+            this.btn0.Click += new System.EventHandler(this.btn0_Click);
             // 
             // btnmr
             // 
@@ -353,21 +354,26 @@ namespace WinFormsApp1
             // 
             // txtbx
             // 
-            this.txtbx.Enabled = false;
-            this.txtbx.Location = new System.Drawing.Point(12, 12);
-            this.txtbx.Multiline = true;
+            this.txtbx.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtbx.Location = new System.Drawing.Point(12, 33);
             this.txtbx.Name = "txtbx";
-            this.txtbx.Size = new System.Drawing.Size(329, 69);
+            this.txtbx.ReadOnly = true;
+            this.txtbx.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtbx.Size = new System.Drawing.Size(329, 54);
             this.txtbx.TabIndex = 3;
+            this.txtbx.Text = "0";
+            this.txtbx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtbx.TextChanged += new System.EventHandler(this.txtbx_TextChanged);
             // 
             // lbl
             // 
             this.lbl.AutoSize = true;
-            this.lbl.Location = new System.Drawing.Point(293, 15);
+            this.lbl.Location = new System.Drawing.Point(293, 34);
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(38, 15);
             this.lbl.TabIndex = 31;
             this.lbl.Text = "label1";
+            this.lbl.Click += new System.EventHandler(this.lbl_Click);
             // 
             // Form1
             // 
