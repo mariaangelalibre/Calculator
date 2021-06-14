@@ -240,6 +240,7 @@ namespace WinFormsApp1
             this.btndecimal.TabIndex = 19;
             this.btndecimal.Text = ".";
             this.btndecimal.UseVisualStyleBackColor = true;
+            this.btndecimal.Click += new System.EventHandler(this.btndecimal_Click);
             // 
             // btnmplus
             // 
@@ -368,7 +369,7 @@ namespace WinFormsApp1
             // lbl
             // 
             this.lbl.AutoSize = true;
-            this.lbl.Location = new System.Drawing.Point(293, 34);
+            this.lbl.Location = new System.Drawing.Point(301, 34);
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(38, 15);
             this.lbl.TabIndex = 31;

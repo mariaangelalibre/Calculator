@@ -75,6 +75,14 @@ namespace WinFormsApp1
         {
             txtbx.Text = txtbx.Text + btn0.Text;
         }
-    }
+
+        private void btndecimal_Click(object sender, EventArgs e)
+        {
+            if (!txtbx.Text.Contains("."))
+            {
+                txtbx.Text = txtbx.Text + btndecimal.Text;
+            }
+
+        }
     }
 }
