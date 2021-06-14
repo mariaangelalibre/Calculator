@@ -16,55 +16,50 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        
+        private void btn3_Click(object sender, EventArgs e)
         {
-            
+            txtbx.Text = txtbx.Text + btn3.Text;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void btn2_Click(object sender, EventArgs e)
         {
-
+            txtbx.Text = txtbx.Text + btn2.Text;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btn1_Click(object sender, EventArgs e)
         {
-
+            txtbx.Text = txtbx.Text + btn1.Text;
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void btn6_Click(object sender, EventArgs e)
         {
-
+            txtbx.Text = txtbx.Text + btn6.Text;
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btn5_Click(object sender, EventArgs e)
         {
-
+            txtbx.Text = txtbx.Text + btn5.Text;
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
+        private void btn4_Click(object sender, EventArgs e)
         {
-
+            txtbx.Text = txtbx.Text + btn4.Text;
         }
 
-        private void button6_Click_1(object sender, EventArgs e)
+        private void btn9_Click(object sender, EventArgs e)
         {
-            txtbx.Text = btn0.Text;
+            txtbx.Text = txtbx.Text + btn9.Text;
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private void btn8_Click(object sender, EventArgs e)
         {
-
+            txtbx.Text = txtbx.Text + btn8.Text;
         }
 
-        private void button17_Click(object sender, EventArgs e)
+        private void btn7_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button16_Click(object sender, EventArgs e)
-        {
-
+            txtbx.Text = txtbx.Text + btn7.Text;
         }
     }
 }

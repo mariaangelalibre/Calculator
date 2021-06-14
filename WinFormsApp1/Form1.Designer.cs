@@ -63,7 +63,6 @@ namespace WinFormsApp1
             // 
             // btnmc
             // 
-            this.btnmc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnmc.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnmc.Location = new System.Drawing.Point(12, 99);
             this.btnmc.Name = "btnmc";
@@ -71,7 +70,6 @@ namespace WinFormsApp1
             this.btnmc.TabIndex = 0;
             this.btnmc.Text = "MC";
             this.btnmc.UseVisualStyleBackColor = true;
-            this.btnmc.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnarrow
             // 
@@ -92,7 +90,7 @@ namespace WinFormsApp1
             this.btn7.TabIndex = 5;
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = true;
-            this.btn7.Click += new System.EventHandler(this.button3_Click_1);
+            this.btn7.Click += new System.EventHandler(this.btn7_Click);
             // 
             // btn4
             // 
@@ -103,6 +101,7 @@ namespace WinFormsApp1
             this.btn4.TabIndex = 6;
             this.btn4.Text = "4";
             this.btn4.UseVisualStyleBackColor = true;
+            this.btn4.Click += new System.EventHandler(this.btn4_Click);
             // 
             // btn1
             // 
@@ -113,6 +112,7 @@ namespace WinFormsApp1
             this.btn1.TabIndex = 7;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // btn0
             // 
@@ -123,7 +123,6 @@ namespace WinFormsApp1
             this.btn0.TabIndex = 8;
             this.btn0.Text = "0";
             this.btn0.UseVisualStyleBackColor = true;
-            this.btn0.Click += new System.EventHandler(this.button6_Click_1);
             // 
             // btnmr
             // 
@@ -154,6 +153,7 @@ namespace WinFormsApp1
             this.btn8.TabIndex = 11;
             this.btn8.Text = "8";
             this.btn8.UseVisualStyleBackColor = true;
+            this.btn8.Click += new System.EventHandler(this.btn8_Click);
             // 
             // btn5
             // 
@@ -164,6 +164,7 @@ namespace WinFormsApp1
             this.btn5.TabIndex = 12;
             this.btn5.Text = "5";
             this.btn5.UseVisualStyleBackColor = true;
+            this.btn5.Click += new System.EventHandler(this.btn5_Click);
             // 
             // btn2
             // 
@@ -174,6 +175,7 @@ namespace WinFormsApp1
             this.btn2.TabIndex = 13;
             this.btn2.Text = "2";
             this.btn2.UseVisualStyleBackColor = true;
+            this.btn2.Click += new System.EventHandler(this.btn2_Click);
             // 
             // btnms
             // 
@@ -184,7 +186,6 @@ namespace WinFormsApp1
             this.btnms.TabIndex = 14;
             this.btnms.Text = "MS";
             this.btnms.UseVisualStyleBackColor = true;
-            this.btnms.Click += new System.EventHandler(this.button12_Click);
             // 
             // btnc
             // 
@@ -205,6 +206,7 @@ namespace WinFormsApp1
             this.btn9.TabIndex = 16;
             this.btn9.Text = "9";
             this.btn9.UseVisualStyleBackColor = true;
+            this.btn9.Click += new System.EventHandler(this.btn9_Click);
             // 
             // btn6
             // 
@@ -215,6 +217,7 @@ namespace WinFormsApp1
             this.btn6.TabIndex = 17;
             this.btn6.Text = "6";
             this.btn6.UseVisualStyleBackColor = true;
+            this.btn6.Click += new System.EventHandler(this.btn6_Click);
             // 
             // btn3
             // 
@@ -225,6 +228,7 @@ namespace WinFormsApp1
             this.btn3.TabIndex = 18;
             this.btn3.Text = "3";
             this.btn3.UseVisualStyleBackColor = true;
+            this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 
             // btndecimal
             // 
@@ -403,7 +407,6 @@ namespace WinFormsApp1
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Calculator";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
