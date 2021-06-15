@@ -84,5 +84,21 @@ namespace WinFormsApp1
             }
 
         }
+
+        private void btnplus_Click(object sender, EventArgs e)
+        {
+            lbl.Text = lbl.Text + txtbx.Text + "+";
+        }
+
+        private void btnce_Click(object sender, EventArgs e)
+        {
+            txtbx.Text = "";
+        }
+
+        private void btnc_Click(object sender, EventArgs e)
+        {
+            txtbx.Text = "";
+            lbl.Text = "";
+        }
     }
 }

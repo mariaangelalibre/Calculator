@@ -144,6 +144,7 @@ namespace WinFormsApp1
             this.btnce.TabIndex = 10;
             this.btnce.Text = "CE";
             this.btnce.UseVisualStyleBackColor = true;
+            this.btnce.Click += new System.EventHandler(this.btnce_Click);
             // 
             // btn8
             // 
@@ -197,6 +198,7 @@ namespace WinFormsApp1
             this.btnc.TabIndex = 15;
             this.btnc.Text = "C";
             this.btnc.UseVisualStyleBackColor = true;
+            this.btnc.Click += new System.EventHandler(this.btnc_Click);
             // 
             // btn9
             // 
@@ -302,6 +304,7 @@ namespace WinFormsApp1
             this.btnplus.TabIndex = 25;
             this.btnplus.Text = "+";
             this.btnplus.UseVisualStyleBackColor = true;
+            this.btnplus.Click += new System.EventHandler(this.btnplus_Click);
             // 
             // btnmminus
             // 
@@ -358,22 +361,24 @@ namespace WinFormsApp1
             this.txtbx.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtbx.Location = new System.Drawing.Point(12, 33);
             this.txtbx.Name = "txtbx";
+            this.txtbx.PlaceholderText = "0";
             this.txtbx.ReadOnly = true;
             this.txtbx.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtbx.Size = new System.Drawing.Size(329, 54);
             this.txtbx.TabIndex = 3;
-            this.txtbx.Text = "0";
             this.txtbx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtbx.TextChanged += new System.EventHandler(this.txtbx_TextChanged);
             // 
             // lbl
             // 
             this.lbl.AutoSize = true;
+            this.lbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl.Location = new System.Drawing.Point(301, 34);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(38, 15);
+            this.lbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbl.Size = new System.Drawing.Size(0, 15);
             this.lbl.TabIndex = 31;
-            this.lbl.Text = "label1";
+            this.lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl.Click += new System.EventHandler(this.lbl_Click);
             // 
             // Form1
