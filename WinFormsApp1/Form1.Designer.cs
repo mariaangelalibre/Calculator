@@ -361,11 +361,11 @@ namespace WinFormsApp1
             this.txtbx.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtbx.Location = new System.Drawing.Point(12, 33);
             this.txtbx.Name = "txtbx";
-            this.txtbx.PlaceholderText = "0";
             this.txtbx.ReadOnly = true;
             this.txtbx.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtbx.Size = new System.Drawing.Size(329, 54);
             this.txtbx.TabIndex = 3;
+            this.txtbx.Text = "0";
             this.txtbx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtbx.TextChanged += new System.EventHandler(this.txtbx_TextChanged);
             // 
