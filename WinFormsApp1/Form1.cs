@@ -125,15 +125,6 @@ namespace WinFormsApp1
             }
         }
 
-        private void txtbx_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void lbl_Click(object sender, EventArgs e)
-        {
-            lbl.Text = txtbx.Text;
-        }
-
         private void btn0_Click(object sender, EventArgs e)
         {
             if (txtbx.Text != "0")
@@ -141,21 +132,7 @@ namespace WinFormsApp1
                 txtbx.Text = txtbx.Text + btn0.Text;
             }
         }
-
-        private void btndecimal_Click(object sender, EventArgs e)
-        {
-            if (!txtbx.Text.Contains("."))
-            {
-                txtbx.Text = txtbx.Text + btndecimal.Text;
-            }
-
-        }
-
-        private void btnplus_Click(object sender, EventArgs e)
-        {
-            lbl.Text = lbl.Text + txtbx.Text + "+";
-        }
-
+       
         private void btnce_Click(object sender, EventArgs e)
         {
             txtbx.Text = "0";
@@ -165,6 +142,18 @@ namespace WinFormsApp1
         {
             txtbx.Text = "0";
             lbl.Text = "";
+        }
+
+        private void txtbx_TextChanged(object sender, EventArgs e)
+        {
+            String num1 = txtbx.Text;
+
+        }
+
+        private void arithmetic(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            lbl.Text = lbl.Text + txtbx.Text + btn.Text;
         }
     }
 }

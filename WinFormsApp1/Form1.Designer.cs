@@ -242,7 +242,6 @@ namespace WinFormsApp1
             this.btndecimal.TabIndex = 19;
             this.btndecimal.Text = ".";
             this.btndecimal.UseVisualStyleBackColor = true;
-            this.btndecimal.Click += new System.EventHandler(this.btndecimal_Click);
             // 
             // btnmplus
             // 
@@ -274,6 +273,7 @@ namespace WinFormsApp1
             this.btndivide.TabIndex = 22;
             this.btndivide.Text = "/";
             this.btndivide.UseVisualStyleBackColor = true;
+            this.btndivide.Click += new System.EventHandler(this.arithmetic);
             // 
             // btntimes
             // 
@@ -284,6 +284,7 @@ namespace WinFormsApp1
             this.btntimes.TabIndex = 23;
             this.btntimes.Text = "*";
             this.btntimes.UseVisualStyleBackColor = true;
+            this.btntimes.Click += new System.EventHandler(this.arithmetic);
             // 
             // btnminus
             // 
@@ -294,6 +295,7 @@ namespace WinFormsApp1
             this.btnminus.TabIndex = 24;
             this.btnminus.Text = "-";
             this.btnminus.UseVisualStyleBackColor = true;
+            this.btnminus.Click += new System.EventHandler(this.arithmetic);
             // 
             // btnplus
             // 
@@ -304,7 +306,7 @@ namespace WinFormsApp1
             this.btnplus.TabIndex = 25;
             this.btnplus.Text = "+";
             this.btnplus.UseVisualStyleBackColor = true;
-            this.btnplus.Click += new System.EventHandler(this.btnplus_Click);
+            this.btnplus.Click += new System.EventHandler(this.arithmetic);
             // 
             // btnmminus
             // 
@@ -359,27 +361,23 @@ namespace WinFormsApp1
             // txtbx
             // 
             this.txtbx.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtbx.Location = new System.Drawing.Point(12, 33);
+            this.txtbx.Location = new System.Drawing.Point(12, 39);
             this.txtbx.Name = "txtbx";
             this.txtbx.ReadOnly = true;
             this.txtbx.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtbx.Size = new System.Drawing.Size(329, 54);
+            this.txtbx.Size = new System.Drawing.Size(334, 54);
             this.txtbx.TabIndex = 3;
             this.txtbx.Text = "0";
             this.txtbx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtbx.TextChanged += new System.EventHandler(this.txtbx_TextChanged);
             // 
             // lbl
             // 
             this.lbl.AutoSize = true;
-            this.lbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl.Location = new System.Drawing.Point(301, 34);
+            this.lbl.Location = new System.Drawing.Point(303, 40);
             this.lbl.Name = "lbl";
-            this.lbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbl.Size = new System.Drawing.Size(0, 15);
+            this.lbl.Size = new System.Drawing.Size(38, 15);
             this.lbl.TabIndex = 31;
-            this.lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl.Click += new System.EventHandler(this.lbl_Click);
+            this.lbl.Text = "label1";
             // 
             // Form1
             // 
@@ -414,8 +412,8 @@ namespace WinFormsApp1
             this.Controls.Add(this.btn4);
             this.Controls.Add(this.btn7);
             this.Controls.Add(this.btnarrow);
-            this.Controls.Add(this.txtbx);
             this.Controls.Add(this.btnmc);
+            this.Controls.Add(this.txtbx);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Calculator";
