@@ -13,7 +13,9 @@ namespace WinFormsApp1
     public partial class Form1 : Form
     {
         bool arithmeticClicked = false;
-        Double num1;
+        Double num1 = 0;
+        Double result = 0;
+        String sign = "";
         public Form1()
         {
             InitializeComponent();
@@ -42,6 +44,10 @@ namespace WinFormsApp1
                 lbl.Text = btn.Text;
                 arithmeticClicked = false;
             }
+            else if ((txtbx.Text == "")&&(lbl.Text != "0"))
+            {
+                lbl.Text = btn.Text;
+            }
             else
             {
                 lbl.Text = lbl.Text + btn.Text;
@@ -59,15 +65,44 @@ namespace WinFormsApp1
         private void arithmetic(object sender, EventArgs e)
         {
             Button btn1 = (Button)sender;
-            num1 = Convert.ToDouble(lbl.Text);
+            num1 = Double.Parse(lbl.Text);
             arithmeticClicked = true;
             if (arithmeticClicked)
             { 
                 //string last = txtbx.Text.Substring(txtbx.TextLength - 1, 1);
                 //if ((last != "+")&& (last != "-")&& (last != "*") && (last != "/"))
-                txtbx.Text = txtbx.Text + lbl.Text + btn1.Text;
+                txtbx.Text = txtbx.Text + lbl.Text + " " + btn1.Text + " ";
+                sign = btn1.Text;
             }
              
+        }
+
+        private void btnequal_Click(object sender, EventArgs e)
+        {
+            if (sign == btnplus.Text)
+            {
+                result = num1 + Double.Parse(lbl.Text);
+                lbl.Text = result.ToString();
+                txtbx.Text = "";
+            }
+            else if (sign == btnminus.Text)
+            {
+                result = num1 - Double.Parse(lbl.Text);
+                lbl.Text = result.ToString();
+                txtbx.Text = "";
+            }
+            else if (sign == btndivide.Text)
+            {
+                result = num1 / Double.Parse(lbl.Text);
+                lbl.Text = result.ToString();
+                txtbx.Text = "";
+            }
+            else if (sign == btntimes.Text)
+            {
+                result = num1 * Double.Parse(lbl.Text);
+                lbl.Text = result.ToString();
+                txtbx.Text = "";
+            }
         }
     }
 }

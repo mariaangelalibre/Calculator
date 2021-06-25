@@ -358,6 +358,7 @@ namespace WinFormsApp1
             this.btnequal.TabIndex = 30;
             this.btnequal.Text = "=";
             this.btnequal.UseVisualStyleBackColor = true;
+            this.btnequal.Click += new System.EventHandler(this.btnequal_Click);
             // 
             // txtbx
             // 
