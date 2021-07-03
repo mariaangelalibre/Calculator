@@ -274,7 +274,7 @@ namespace WinFormsApp1
             this.btndivide.TabIndex = 22;
             this.btndivide.Text = "/";
             this.btndivide.UseVisualStyleBackColor = true;
-            this.btndivide.Click += new System.EventHandler(this.arithmetic);
+            this.btndivide.Click += new System.EventHandler(this.operation);
             // 
             // btntimes
             // 
@@ -285,7 +285,7 @@ namespace WinFormsApp1
             this.btntimes.TabIndex = 23;
             this.btntimes.Text = "*";
             this.btntimes.UseVisualStyleBackColor = true;
-            this.btntimes.Click += new System.EventHandler(this.arithmetic);
+            this.btntimes.Click += new System.EventHandler(this.operation);
             // 
             // btnminus
             // 
@@ -296,7 +296,7 @@ namespace WinFormsApp1
             this.btnminus.TabIndex = 24;
             this.btnminus.Text = "-";
             this.btnminus.UseVisualStyleBackColor = true;
-            this.btnminus.Click += new System.EventHandler(this.arithmetic);
+            this.btnminus.Click += new System.EventHandler(this.operation);
             // 
             // btnplus
             // 
@@ -307,7 +307,7 @@ namespace WinFormsApp1
             this.btnplus.TabIndex = 25;
             this.btnplus.Text = "+";
             this.btnplus.UseVisualStyleBackColor = true;
-            this.btnplus.Click += new System.EventHandler(this.arithmetic);
+            this.btnplus.Click += new System.EventHandler(this.operation);
             // 
             // btnmminus
             // 
@@ -420,6 +420,7 @@ namespace WinFormsApp1
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Calculator";
+            this.Click += new System.EventHandler(this.operation);
             this.ResumeLayout(false);
             this.PerformLayout();
 

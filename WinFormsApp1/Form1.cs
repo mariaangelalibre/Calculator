@@ -12,12 +12,13 @@ namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
-        bool arithmeticClicked = false;
+        bool operationNotClicked = false;
         bool equalsClicked = false;
         Double num1 = 0;
         Double result = 0;
         String sign = "";
         Double num2 = 0;
+        bool numClicked = false;
 
         public Form1()
         {
@@ -33,28 +34,35 @@ namespace WinFormsApp1
         {
             lbl.Text = "0";
             txtbx.Text = "";
+            num1 = 0;
+            num2 = 0;
         }
 
         private void numbtns(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
+            numClicked = true;
+            
             if (lbl.Text == "0")
             {
+                operationNotClicked = true;
                 lbl.Text = btn.Text;
             }
-            else if (arithmeticClicked)
+            else if (!operationNotClicked)
             {
                 lbl.Text = btn.Text;
-                arithmeticClicked = false;
+                operationNotClicked = true;
             }
             else if (equalsClicked)
             {
+                operationNotClicked = true;
                 lbl.Text = btn.Text;
                 equalsClicked = false;
             }
 
             else
             {
+                operationNotClicked = true;
                 lbl.Text = lbl.Text + btn.Text;
             }
         }
@@ -67,24 +75,11 @@ namespace WinFormsApp1
             }
         }
 
-        private void arithmetic(object sender, EventArgs e)
-        {
-            Button btn1 = (Button)sender;
-            num1 = Double.Parse(lbl.Text);
-            arithmeticClicked = true;
-            if (arithmeticClicked)
-            { 
-                //string last = txtbx.Text.Substring(txtbx.TextLength - 1, 1);
-                //if ((last != "+")&& (last != "-")&& (last != "*") && (last != "/"))
-                txtbx.Text = txtbx.Text + lbl.Text + " " + btn1.Text + " ";
-                sign = btn1.Text;
-            }
-             
-        }
 
         private void btnequal_Click(object sender, EventArgs e)
         {
             equalsClicked = true;
+            numClicked = false;
             if (sign == btnplus.Text)
             {
                 num2 = Double.Parse(lbl.Text);
@@ -113,6 +108,26 @@ namespace WinFormsApp1
                 lbl.Text = result.ToString();
                 txtbx.Text = "";
             }
+        }
+
+        private void operation(object sender, EventArgs e)
+        {
+            Button btn1 = (Button)sender;
+            num1 = Double.Parse(lbl.Text);
+            if (operationNotClicked)
+            {
+                //
+                numClicked = false;
+                operationNotClicked = false;
+                txtbx.Text = txtbx.Text + lbl.Text + " " + btn1.Text + " ";
+                sign = btn1.Text;
+            }
+            //else if (!operationNotClicked)
+            //{
+                //string text = txtbx.Text;
+                //string last = txtbx.Text.Replace((txtbx.Text.Substring(txtbx.TextLength - 1, 1), btn1.Text));
+                
+            //}
         }
     }
 }
