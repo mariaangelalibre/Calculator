@@ -19,6 +19,8 @@ namespace WinFormsApp1
         String sign = "";
         Double num2 = 0;
         Double store = 0;
+        Double add;
+        Double memory;
 
         public Form1()
         {
@@ -178,10 +180,31 @@ namespace WinFormsApp1
                 store = Double.Parse(lbl.Text);
             }
         }
+        private void btnmplus_Click(object sender, EventArgs e)
+        {
+            memory = Convert.ToDouble(store);
+            add = memory + Double.Parse(lbl.Text);
+            store = add;
+        }
 
         private void btnmr_Click(object sender, EventArgs e)
         {
             lbl.Text = store.ToString();
+        }
+
+        private void btnmminus_Click(object sender, EventArgs e)
+        {
+            memory = Convert.ToDouble(store);
+            add = memory - Double.Parse(lbl.Text);
+            store = add;
+        }
+
+        private void btnmc_Click(object sender, EventArgs e)
+        {
+            lblm.Visible = false;
+            store = 0;
+            add = 0;
+            memory = 0;
         }
     }
 }

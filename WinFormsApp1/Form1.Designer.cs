@@ -71,6 +71,7 @@ namespace WinFormsApp1
             this.btnmc.TabIndex = 0;
             this.btnmc.Text = "MC";
             this.btnmc.UseVisualStyleBackColor = true;
+            this.btnmc.Click += new System.EventHandler(this.btnmc_Click);
             // 
             // btnarrow
             // 
@@ -256,6 +257,7 @@ namespace WinFormsApp1
             this.btnmplus.TabIndex = 20;
             this.btnmplus.Text = "M+";
             this.btnmplus.UseVisualStyleBackColor = true;
+            this.btnmplus.Click += new System.EventHandler(this.btnmplus_Click);
             // 
             // btnplusminus
             // 
@@ -321,6 +323,7 @@ namespace WinFormsApp1
             this.btnmminus.TabIndex = 26;
             this.btnmminus.Text = "M-";
             this.btnmminus.UseVisualStyleBackColor = true;
+            this.btnmminus.Click += new System.EventHandler(this.btnmminus_Click);
             // 
             // btnsqr
             // 
