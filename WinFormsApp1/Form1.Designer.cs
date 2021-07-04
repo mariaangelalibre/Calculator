@@ -59,6 +59,7 @@ namespace WinFormsApp1
             this.btnequal = new System.Windows.Forms.Button();
             this.txtbx = new System.Windows.Forms.TextBox();
             this.lbl = new System.Windows.Forms.Label();
+            this.lblm = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnmc
@@ -188,6 +189,7 @@ namespace WinFormsApp1
             this.btnms.TabIndex = 14;
             this.btnms.Text = "MS";
             this.btnms.UseVisualStyleBackColor = true;
+            this.btnms.Click += new System.EventHandler(this.btnms_Click);
             // 
             // btnc
             // 
@@ -382,11 +384,21 @@ namespace WinFormsApp1
             this.lbl.Text = "0";
             this.lbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // lblm
+            // 
+            this.lblm.AutoSize = true;
+            this.lblm.Location = new System.Drawing.Point(20, 71);
+            this.lblm.Name = "lblm";
+            this.lblm.Size = new System.Drawing.Size(18, 15);
+            this.lblm.TabIndex = 34;
+            this.lblm.Text = "M";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(351, 450);
+            this.Controls.Add(this.lblm);
             this.Controls.Add(this.txtbx);
             this.Controls.Add(this.btnequal);
             this.Controls.Add(this.btnfraction);
@@ -458,6 +470,7 @@ namespace WinFormsApp1
         private System.Windows.Forms.Button btnequal;
         private System.Windows.Forms.TextBox txtbx;
         private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Label lblm;
     }
 }
 
