@@ -135,6 +135,7 @@ namespace WinFormsApp1
             this.btnmr.TabIndex = 9;
             this.btnmr.Text = "MR";
             this.btnmr.UseVisualStyleBackColor = true;
+            this.btnmr.Click += new System.EventHandler(this.btnmr_Click);
             // 
             // btnce
             // 
@@ -392,6 +393,7 @@ namespace WinFormsApp1
             this.lblm.Size = new System.Drawing.Size(18, 15);
             this.lblm.TabIndex = 34;
             this.lblm.Text = "M";
+            this.lblm.Visible = false;
             // 
             // Form1
             // 

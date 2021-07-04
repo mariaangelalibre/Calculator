@@ -18,6 +18,7 @@ namespace WinFormsApp1
         Double result = 0;
         String sign = "";
         Double num2 = 0;
+        Double store = 0;
 
         public Form1()
         {
@@ -41,7 +42,7 @@ namespace WinFormsApp1
         private void numbtns(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            
+
             if (lbl.Text == "0")
             {
                 operationNotClicked = true;
@@ -137,7 +138,7 @@ namespace WinFormsApp1
                 txtbx.Text = "";
                 equalsClicked = true;
             }
-            
+
         }
 
         private void operation(object sender, EventArgs e)
@@ -171,9 +172,16 @@ namespace WinFormsApp1
 
         private void btnms_Click(object sender, EventArgs e)
         {
+            lblm.Visible = true;
             if (lbl.Text != "0")
             {
-                int store = lbl.Text;
+                store = Double.Parse(lbl.Text);
             }
+        }
+
+        private void btnmr_Click(object sender, EventArgs e)
+        {
+            lbl.Text = store.ToString();
+        }
     }
 }
