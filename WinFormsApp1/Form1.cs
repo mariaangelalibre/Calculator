@@ -12,15 +12,9 @@ namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
-        bool operationNotClicked = false;
-        bool equalsClicked = false;
-        Double num1 = 0;
-        Double result = 0;
+        bool operationNotClicked, equalsClicked, mcClicked, mrClicked, msClicked, maddClicked, mminusClicked = false;
+        Double num1 , result, num2, store, add , memory;
         String sign = "";
-        Double num2 = 0;
-        Double store = 0;
-        Double add;
-        Double memory;
 
         public Form1()
         {
@@ -61,6 +55,15 @@ namespace WinFormsApp1
                 lbl.Text = btn.Text;
                 equalsClicked = false;
             }
+            else if ((msClicked) || (mrClicked) || (mminusClicked) || (mcClicked) || (maddClicked))
+            {
+                lbl.Text = btn.Text;
+                mcClicked = false;
+                mrClicked = false; 
+                msClicked = false; 
+                maddClicked = false; 
+                mminusClicked = false;
+            }
 
             else
             {
@@ -80,34 +83,34 @@ namespace WinFormsApp1
 
         private void btnequal_Click(object sender, EventArgs e)
         {
-            if (equalsClicked)
-            {
-                if (sign == btnplus.Text)
-                {
-                    num2 = result - num1;
-                    result += num2;
-                    lbl.Text = result.ToString();
-                    txtbx.Text = "";
-                }
-                else if (sign == btnminus.Text)
-                {
-                    result -= num2;
-                    lbl.Text = result.ToString();
-                    txtbx.Text = "";
-                }
-                else if (sign == btndivide.Text)
-                {
-                    result /= num2;
-                    lbl.Text = result.ToString();
-                    txtbx.Text = "";
-                }
-                else if (sign == btntimes.Text)
-                {
-                    result *= num2;
-                    lbl.Text = result.ToString();
-                    txtbx.Text = "";
-                }
-            }
+         // if (equalsClicked)
+          //{
+         ///    if (sign == btnplus.Text)
+         //     {
+          //        num2 = result - num1;
+           //       result += num2;
+         //         lbl.Text = result.ToString();
+          //        txtbx.Text = "";
+          //    }
+          //    else if (sign == btnminus.Text)
+           //   {
+           ////   result -= num2;
+           ///      lbl.Text = result.ToString();
+           //       txtbx.Text = "";
+             // }
+             // else if (sign == btndivide.Text)
+              //{
+           //       result /= num2;
+           //       lbl.Text = result.ToString();
+            //      txtbx.Text = "";
+              //}
+           //   else if (sign == btntimes.Text)
+             // {
+        //          result *= num2;
+          //        lbl.Text = result.ToString();
+            //      txtbx.Text = "";
+              //}
+         // }
             if (sign == btnplus.Text)
             {
                 num2 = Double.Parse(lbl.Text);
@@ -153,9 +156,16 @@ namespace WinFormsApp1
             //string text = txtbx.Text;
             //string last = text.Remove(txtbx.TextLength -1, 1);
             //}
+            
+
             if (lbl.Text != "0")
             {
-                txtbx.Text = lbl.Text + " " + btn01.Text + " ";
+                if((num1 != 0) && (num1 != 0))
+                {
+                    txtbx.Text = txtbx.Text + " " + lbl.Text + " " + btn01.Text + " ";
+                }
+
+                txtbx.Text = txtbx.Text + " " + lbl.Text + " " + btn01.Text + " ";
                 if (operationNotClicked)
                 {
                     operationNotClicked = false;
@@ -163,20 +173,23 @@ namespace WinFormsApp1
             }
             else if (lbl.Text == "0")
             {
-                txtbx.Text = lbl.Text + " " + btn01.Text + " ";
+                txtbx.Text = txtbx.Text + " " + lbl.Text + " " + btn01.Text + " ";
                 if (operationNotClicked)
                 {
                     operationNotClicked = false;
                 }
             }
+            
+            
 
-        }
+
+            }
 
         private void btnms_Click(object sender, EventArgs e)
         {
-            lblm.Visible = true;
             if (lbl.Text != "0")
             {
+                lblm.Visible = true;
                 store = Double.Parse(lbl.Text);
             }
         }
@@ -185,22 +198,26 @@ namespace WinFormsApp1
             memory = Convert.ToDouble(store);
             add = memory + Double.Parse(lbl.Text);
             store = add;
+            maddClicked = true;
         }
 
         private void btnmr_Click(object sender, EventArgs e)
         {
             lbl.Text = store.ToString();
-        }
+            mrClicked = true;
+        } 
 
         private void btnmminus_Click(object sender, EventArgs e)
         {
             memory = Convert.ToDouble(store);
             add = memory - Double.Parse(lbl.Text);
             store = add;
+            mminusClicked = true;
         }
 
         private void btnmc_Click(object sender, EventArgs e)
         {
+            mcClicked = true;
             lblm.Visible = false;
             store = 0;
             add = 0;
