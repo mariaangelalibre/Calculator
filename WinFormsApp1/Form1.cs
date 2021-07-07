@@ -53,34 +53,34 @@ namespace WinFormsApp1
         private void numbtns(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            if (lbl.Text == "0")
+            if ((msClicked) || (mrClicked) || (mminusClicked) || (mcClicked) || (maddClicked))
+            {
+                mcClicked = false;
+                mrClicked = false;
+                msClicked = false;
+                maddClicked = false;
+                mminusClicked = false;
+                lbl.Text = btn.Text;
+            }
+            else if (lbl.Text == "0")
             {
                 operationNotClicked = true;
                 lbl.Text = btn.Text;
             }
-            else if (!operationNotClicked)
-            {
 
-                sign1 = txtbx.Text.Substring(txtbx.TextLength - 1, 1);
-                lbl.Text = btn.Text;
-                operationNotClicked = true;
-            }
             else if (equalsClicked)
             {
                 operationNotClicked = true;
                 lbl.Text = btn.Text;
                 equalsClicked = false;
             }
-            else if ((msClicked) || (mrClicked) || (mminusClicked) || (mcClicked) || (maddClicked))
-            {
-                lbl.Text = btn.Text;
-                mcClicked = false;
-                mrClicked = false; 
-                msClicked = false; 
-                maddClicked = false; 
-                mminusClicked = false;
-            }
 
+            else if (!operationNotClicked)
+            {
+               sign1 = txtbx.Text.Substring(txtbx.TextLength - 1, 1);
+               lbl.Text = btn.Text;
+               operationNotClicked = true;
+            }
             else
             {
                 operationNotClicked = true;
@@ -209,32 +209,77 @@ namespace WinFormsApp1
         }
         private void btnms_Click(object sender, EventArgs e)
         {
+            msClicked = true;
             if (lbl.Text != "0")
             {
                 lblm.Visible = true;
                 store = Double.Parse(lbl.Text);
             }
+            else
+            {
+                lblm.Visible = false;
+                store = 0;
+            }
         }
         private void btnmplus_Click(object sender, EventArgs e)
         {
-            memory = Convert.ToDouble(store);
-            add = memory + Double.Parse(lbl.Text);
-            store = add;
             maddClicked = true;
+            if (!lblm.Visible)
+            {
+                btnms.PerformClick();
+            }
+            else if (lblm.Visible)
+            {
+                if (mminusClicked)
+                {
+                    lblm.Visible = false;
+                }
+            }
+            else
+            {
+                memory = Convert.ToDouble(store);
+                add = memory + Double.Parse(lbl.Text);
+                store = add;
+                maddClicked = true;
+            }
         }
 
         private void btnmr_Click(object sender, EventArgs e)
         {
-            lbl.Text = store.ToString();
             mrClicked = true;
+            if (lblm.Visible)
+            {
+                lbl.Text = store.ToString();
+            }
+            else
+            {
+                lbl.Text = "0";
+            }
         } 
 
         private void btnmminus_Click(object sender, EventArgs e)
         {
-            memory = Convert.ToDouble(store);
-            add = memory - Double.Parse(lbl.Text);
-            store = add;
             mminusClicked = true;
+            if ((!lblm.Visible) && (lbl.Text != "0"))
+            {
+                lblm.Visible = true;
+                store = Double.Parse("-"+lbl.Text);
+            }
+            else if (lblm.Visible)
+            {
+                if (maddClicked)
+                {
+                    lblm.Visible = false;
+                }
+            }
+            else
+            {
+                memory = Convert.ToDouble(store);
+                add = memory - Double.Parse(lbl.Text);
+                store = add;
+                mminusClicked = true;
+            }
+            
         }
 
         private void btnmc_Click(object sender, EventArgs e)
