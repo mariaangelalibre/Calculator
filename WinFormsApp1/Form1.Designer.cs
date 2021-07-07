@@ -82,6 +82,7 @@ namespace WinFormsApp1
             this.btnarrow.TabIndex = 4;
             this.btnarrow.Text = "←";
             this.btnarrow.UseVisualStyleBackColor = true;
+            this.btnarrow.Click += new System.EventHandler(this.btnarrow_Click);
             // 
             // btn7
             // 
