@@ -12,13 +12,57 @@ namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
-        bool operationNotClicked, equalsClicked, mcClicked, mrClicked, msClicked, maddClicked, mminusClicked = false;
-        Double num1 , result, num2, store, add , memory = 0;
-        String sign, sign1 = "";
+        bool operationNotClicked, equalsClicked, mcClicked, mrClicked, msClicked, maddClicked, mminusClicked, negateClicked = false;
+        Double num1 , result, num2, store, add , memory, n = 0;
+        String sign, sign1, negate, negate1 = "";
 
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void btnplusminus_Click(object sender, EventArgs e)
+        {
+            
+            if (((lbl.Text != "0") && (txtbx.Text != "") && (operationNotClicked)) || (txtbx.Text == ""))
+            {
+                if (lbl.Text.Contains("-"))
+                {
+                    lbl.Text = lbl.Text.Remove(0, 1);
+                }
+                else
+                {
+                    lbl.Text = "-" + lbl.Text;
+                }
+            }
+            else if(!negateClicked)
+            {
+                negate1 = "negate(" + lbl.Text + ")";
+                txtbx.Text = negate + negate1;
+                negateClicked = true;
+                if (lbl.Text.Contains("-"))
+                {
+                    lbl.Text = lbl.Text.Remove(0, 1);
+                }
+                else
+                {
+                    lbl.Text = "-" + lbl.Text;
+                }
+            }
+            else if (negateClicked)
+            {
+                negate1 = "negate(" + negate1 + ")";
+                txtbx.Text = negate + negate1;
+                negateClicked = true;
+                if (lbl.Text.Contains("-"))
+                {
+                    lbl.Text = lbl.Text.Remove(0, 1);
+                }
+                else
+                {
+                    lbl.Text = "-" + lbl.Text;
+                }
+            }
         }
 
         private void btnarrow_Click(object sender, EventArgs e)
@@ -48,6 +92,8 @@ namespace WinFormsApp1
             num1 = 0;
             num2 = 0;
             result = 0;
+            negate = "";
+            negate1 = "";
         }
 
         private void numbtns(object sender, EventArgs e)
@@ -77,9 +123,14 @@ namespace WinFormsApp1
 
             else if (!operationNotClicked)
             {
-               sign1 = txtbx.Text.Substring(txtbx.TextLength - 1, 1);
-               lbl.Text = btn.Text;
-               operationNotClicked = true;
+                sign1 = txtbx.Text.Substring(txtbx.TextLength - 1, 1);
+                lbl.Text = btn.Text;
+                num2 = Double.Parse(lbl.Text);
+                operationNotClicked = true;
+            }
+            else if (negateClicked)
+            {
+                num2
             }
             else
             {
@@ -99,30 +150,58 @@ namespace WinFormsApp1
 
         private void btnequal_Click(object sender, EventArgs e)
         {
-            if (sign == btnplus.Text)
+            if (equalsClicked)
             {
-                result = num1 + Double.Parse(lbl.Text);
-                lbl.Text = result.ToString();
-                equalsClicked = true;
+                if (sign == btnplus.Text)
+                {
+                    result += num2;
+                    lbl.Text = result.ToString();
+                }
+                else if (sign == btnminus.Text)
+                {
+                    result -= num2;
+                    lbl.Text = result.ToString();
+                }
+                else if (sign == btndivide.Text)
+                {
+                    result /= num2;
+                    lbl.Text = result.ToString();
+                }
+                else if (sign == btntimes.Text)
+                {
+                    result *= num2;
+                    lbl.Text = result.ToString();
+                }
             }
-            else if (sign == btnminus.Text)
+            else
             {
-                result = num1 - Double.Parse(lbl.Text); ;
-                lbl.Text = result.ToString();
-                equalsClicked = true;
+                if (sign == btnplus.Text)
+                {
+                    result = num1 + Double.Parse(lbl.Text);
+                    lbl.Text = result.ToString();
+                    equalsClicked = true;
+                }
+                else if (sign == btnminus.Text)
+                {
+                    result = num1 - Double.Parse(lbl.Text); ;
+                    lbl.Text = result.ToString();
+                    equalsClicked = true;
+                }
+                else if (sign == btndivide.Text)
+                {
+                    result = num1 / Double.Parse(lbl.Text);
+                    lbl.Text = result.ToString();
+                    equalsClicked = true;
+                }
+                else if (sign == btntimes.Text)
+                {
+                    result = num1 * Double.Parse(lbl.Text);
+                    lbl.Text = result.ToString();
+                    equalsClicked = true;
+                }
             }
-            else if (sign == btndivide.Text)
-            {
-                result = num1 / Double.Parse(lbl.Text);
-                lbl.Text = result.ToString();
-                equalsClicked = true;
-            }
-            else if (sign == btntimes.Text)
-            {
-                result = num1 * Double.Parse(lbl.Text);
-                lbl.Text = result.ToString();
-                equalsClicked = true;
-            }
+            
+            
             num1 = Double.Parse(lbl.Text);
             txtbx.Text = "";
 
@@ -131,6 +210,7 @@ namespace WinFormsApp1
         private void operation(object sender, EventArgs e)
         {
             Button btn01 = (Button)sender;
+            negate = lbl.Text + btn01.Text;
             sign = btn01.Text;
             if (num1 != 0)
             {
@@ -190,23 +270,8 @@ namespace WinFormsApp1
                     }
                 }
             }
-       //     if (lbl.Text != "0")
-       //     {
-      ////          txtbx.Text = lbl.Text + " " + btn01.Text + " ";
-      //          if (operationNotClicked)
-       //         {
-       //             operationNotClicked = false;
-        //        }
-         //   }
-         //   else if (lbl.Text == "0")
-           // {
-            //    txtbx.Text = lbl.Text + " " + btn01.Text + " ";
-             //   if (operationNotClicked)
-            //    {
-            //        operationNotClicked = false;
-             //   }
-            //}
         }
+
         private void btnms_Click(object sender, EventArgs e)
         {
             msClicked = true;
@@ -221,6 +286,7 @@ namespace WinFormsApp1
                 store = 0;
             }
         }
+
         private void btnmplus_Click(object sender, EventArgs e)
         {
             maddClicked = true;
@@ -265,13 +331,11 @@ namespace WinFormsApp1
                 lblm.Visible = true;
                 store = Double.Parse("-"+lbl.Text);
             }
-            else if (lblm.Visible)
+            else if ((lblm.Visible) && ((maddClicked) || (msClicked) || (mrClicked)))
             {
-                if (maddClicked)
-                {
-                    lblm.Visible = false;
-                }
+                lblm.Visible = false;
             }
+
             else
             {
                 memory = Convert.ToDouble(store);

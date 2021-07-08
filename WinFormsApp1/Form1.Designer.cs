@@ -269,6 +269,7 @@ namespace WinFormsApp1
             this.btnplusminus.TabIndex = 21;
             this.btnplusminus.Text = "+/-";
             this.btnplusminus.UseVisualStyleBackColor = true;
+            this.btnplusminus.Click += new System.EventHandler(this.btnplusminus_Click);
             // 
             // btndivide
             // 
