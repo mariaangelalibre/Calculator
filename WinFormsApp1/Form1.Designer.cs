@@ -29,6 +29,7 @@ namespace WinFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnmc = new System.Windows.Forms.Button();
             this.btnarrow = new System.Windows.Forms.Button();
             this.btn7 = new System.Windows.Forms.Button();
@@ -347,6 +348,7 @@ namespace WinFormsApp1
             this.btnpercent.TabIndex = 28;
             this.btnpercent.Text = "%";
             this.btnpercent.UseVisualStyleBackColor = true;
+            this.btnpercent.Click += new System.EventHandler(this.btnpercent_Click);
             // 
             // btnfraction
             // 
@@ -438,6 +440,8 @@ namespace WinFormsApp1
             this.Controls.Add(this.btnarrow);
             this.Controls.Add(this.btnmc);
             this.Controls.Add(this.lbl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Calculator";
