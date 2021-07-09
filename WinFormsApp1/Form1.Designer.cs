@@ -336,6 +336,7 @@ namespace WinFormsApp1
             this.btnsqr.TabIndex = 27;
             this.btnsqr.Text = "√";
             this.btnsqr.UseVisualStyleBackColor = true;
+            this.btnsqr.Click += new System.EventHandler(this.btnsqr_Click);
             // 
             // btnpercent
             // 
@@ -356,6 +357,7 @@ namespace WinFormsApp1
             this.btnfraction.TabIndex = 29;
             this.btnfraction.Text = "1/x";
             this.btnfraction.UseVisualStyleBackColor = true;
+            this.btnfraction.Click += new System.EventHandler(this.btnfraction_Click);
             // 
             // btnequal
             // 
