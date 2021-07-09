@@ -185,15 +185,12 @@ namespace WinFormsApp1
                 mminusClicked = false;
                 lbl.Text = btn.Text;
             }
-
             else if (equalsClicked)
             {
                 operationNotClicked = true;
                 lbl.Text = btn.Text;
                 equalsClicked = false;
             }
-
-            
             else if(percentClicked)
             {
                 txtbx.Text = "";
@@ -201,7 +198,6 @@ namespace WinFormsApp1
                 operationNotClicked = true;
                 lbl.Text = btn.Text;
             }
-
             else if (lbl.Text == "0")
             {
                 operationNotClicked = true;
@@ -281,7 +277,7 @@ namespace WinFormsApp1
                     lbl.Text = result.ToString();
                     equalsClicked = true;
                 }
-             }
+            }
             else
             {
                 if (sign == btnplus.Text)
@@ -311,7 +307,6 @@ namespace WinFormsApp1
             }
             num1 = Double.Parse(lbl.Text);
             txtbx.Text = "";
-
         }
 
         private void operation(object sender, EventArgs e)
@@ -366,8 +361,6 @@ namespace WinFormsApp1
                     }
                      num1 = Double.Parse(lbl.Text);
                      operationNotClicked = false;
-
-                    
                 }
                 else if (operationNotClicked)
                 {
@@ -487,7 +480,6 @@ namespace WinFormsApp1
             {
                 lblm.Visible = false;
             }
-
             else
             {
                 memory = Convert.ToDouble(store);
@@ -495,7 +487,6 @@ namespace WinFormsApp1
                 store = add;
                 mminusClicked = true;
             }
-            
         }
 
         private void btnmc_Click(object sender, EventArgs e)
