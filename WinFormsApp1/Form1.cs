@@ -13,19 +13,20 @@ namespace WinFormsApp1
     public partial class Form1 : Form
     {
         bool operationNotClicked, equalsClicked, mcClicked, mrClicked, msClicked, maddClicked, mminusClicked, negateClicked, sqrtClicked, reciprocalClicked, percentClicked = false;
-        Double num1 , result, num2, store, add , memory, n = 0;
+        Double num1, result, num2, store, add, memory, n = 0;
         String sign, sign1, negate, negate1, sqrt, sqrt1, recip, recip1, percent, percent1 = "";
 
         private void btnpercent_Click(object sender, EventArgs e)
         {
             operationNotClicked = true;
-            if(txtbx.Text == "")
+            if (txtbx.Text == "")
             {
                 lbl.Text = "0";
                 txtbx.Text = "0";
             }
             else if (!percentClicked)
             {
+                sign1 = txtbx.Text.Substring(txtbx.TextLength - 1, 1);
                 n = Double.Parse(lbl.Text) / 100;
                 percent1 = (Double.Parse(lbl.Text) * ((Double.Parse(lbl.Text)) / 100)).ToString();
                 txtbx.Text = percent + percent1;
@@ -47,10 +48,11 @@ namespace WinFormsApp1
             operationNotClicked = true;
             if (!reciprocalClicked)
             {
+                sign1 = txtbx.Text.Substring(txtbx.TextLength - 1, 1);
                 recip1 = "reciprocal(" + lbl.Text + ")";
                 txtbx.Text = recip + recip1;
                 reciprocalClicked = true;
-                lbl.Text = (1/Double.Parse(lbl.Text)).ToString();
+                lbl.Text = (1 / Double.Parse(lbl.Text)).ToString();
                 num2 = Double.Parse(lbl.Text);
             }
             else if (reciprocalClicked)
@@ -71,6 +73,7 @@ namespace WinFormsApp1
             operationNotClicked = true;
             if (!sqrtClicked)
             {
+                sign1 = txtbx.Text.Substring(txtbx.TextLength - 1, 1);
                 sqrt1 = "sqrt(" + lbl.Text + ")";
                 txtbx.Text = sqrt + sqrt1;
                 sqrtClicked = true;
@@ -85,7 +88,7 @@ namespace WinFormsApp1
                 num2 = Double.Parse(lbl.Text);
             }
         }
-            private void btnplusminus_Click(object sender, EventArgs e)
+        private void btnplusminus_Click(object sender, EventArgs e)
         {
             operationNotClicked = true;
             if (((lbl.Text != "0") && (txtbx.Text != "") && (!operationNotClicked)) || (txtbx.Text == ""))
@@ -99,7 +102,7 @@ namespace WinFormsApp1
                     lbl.Text = "-" + lbl.Text;
                 }
             }
-            else if(!negateClicked)
+            else if (!negateClicked)
             {
                 sign1 = txtbx.Text.Substring(txtbx.TextLength - 1, 1);
                 negate1 = "negate(" + lbl.Text + ")";
@@ -130,7 +133,6 @@ namespace WinFormsApp1
                 num2 = Double.Parse(lbl.Text);
             }
         }
-
         private void btnarrow_Click(object sender, EventArgs e)
         {
             string l, l1;
@@ -154,6 +156,9 @@ namespace WinFormsApp1
                 txtbx.Text = negate;
             }
             negateClicked = false;
+            sqrtClicked = false;
+            percentClicked = false;
+            reciprocalClicked = false;
         }
 
         private void btnc_Click(object sender, EventArgs e)
@@ -164,9 +169,16 @@ namespace WinFormsApp1
             num2 = 0;
             result = 0;
             negateClicked = false;
+            sqrtClicked = false;
+            percentClicked = false;
+            reciprocalClicked = false;
             negate1 = "";
+            negate = "";
+            recip1 = "";
             recip = "";
+            sqrt1 = "";
             sqrt = "";
+            percent1 = "";
             percent = "";
         }
 
@@ -175,6 +187,7 @@ namespace WinFormsApp1
             sqrtClicked = false;
             negateClicked = false;
             reciprocalClicked = false;
+            percentClicked = false;
             Button btn = (Button)sender;
             if ((msClicked) || (mrClicked) || (mminusClicked) || (mcClicked) || (maddClicked))
             {
@@ -191,13 +204,7 @@ namespace WinFormsApp1
                 lbl.Text = btn.Text;
                 equalsClicked = false;
             }
-            else if(percentClicked)
-            {
-                txtbx.Text = "";
-                percentClicked = false;
-                operationNotClicked = true;
-                lbl.Text = btn.Text;
-            }
+            
             else if (lbl.Text == "0")
             {
                 operationNotClicked = true;
@@ -220,6 +227,9 @@ namespace WinFormsApp1
         private void btndecimal_Click(object sender, EventArgs e)
         {
             negateClicked = false;
+            sqrtClicked = false;
+            percentClicked = false;
+            reciprocalClicked = false;
             if (!lbl.Text.Contains("."))
             {
                 lbl.Text = lbl.Text + btndecimal.Text;
@@ -228,6 +238,9 @@ namespace WinFormsApp1
         private void btnequal_Click(object sender, EventArgs e)
         {
             negateClicked = false;
+            sqrtClicked = false;
+            percentClicked = false;
+            reciprocalClicked = false;
             if (equalsClicked)
             {
                 if (sign == btnplus.Text)
@@ -251,7 +264,7 @@ namespace WinFormsApp1
                     lbl.Text = result.ToString();
                 }
             }
-            if ((txtbx.Text.Contains("negate")) || (txtbx.Text.Contains("sqrt")) || (txtbx.Text.Contains("reciprocal")))
+            if ((txtbx.Text.Contains("negate")) || (txtbx.Text.Contains("sqrt")) || (txtbx.Text.Contains("reciprocal")) || !percentClicked)
             {
                 if (sign == btnplus.Text)
                 {
@@ -311,9 +324,6 @@ namespace WinFormsApp1
 
         private void operation(object sender, EventArgs e)
         {
-            negateClicked = false;
-            sqrtClicked = false;
-            reciprocalClicked = false;
             Button btn01 = (Button)sender;
             negate = lbl.Text + " " + btn01.Text;
             sqrt = lbl.Text + " " + btn01.Text;
@@ -321,8 +331,8 @@ namespace WinFormsApp1
             percent = lbl.Text + " " + btn01.Text;
             sign = btn01.Text;
             if (num1 != 0)
-            { 
-                if (txtbx.Text.Contains("negate")) 
+            {
+                if (txtbx.Text.Contains("negate") || txtbx.Text.Contains("sqrt") || txtbx.Text.Contains("reciprocal") || percentClicked)
                 {
                     if (!operationNotClicked)
                     {
@@ -335,32 +345,62 @@ namespace WinFormsApp1
                             txtbx.Text = text1 + sign;
                         }
                     }
-                    else
+                    else if (negateClicked || sqrtClicked || percentClicked || reciprocalClicked)
                     {
+                        negateClicked = false;
+                        sqrtClicked = false;
+                        percentClicked = false;
+                        reciprocalClicked = false;
                         txtbx.Text = txtbx.Text + " " + btn01.Text;
+                        if (sign1 == btnplus.Text)
+                        {
+                            result = num1 + Double.Parse(lbl.Text);
+                            lbl.Text = result.ToString();
+                        }
+                        else if (sign1 == btnminus.Text)
+                        {
+                            result = num1 - Double.Parse(lbl.Text); ;
+                            lbl.Text = result.ToString();
+                        }
+                        else if (sign1 == btndivide.Text)
+                        {
+                            result = num1 / Double.Parse(lbl.Text);
+                            lbl.Text = result.ToString();
+                        }
+                        else if (sign1 == btntimes.Text)
+                        {
+                            result = num1 * Double.Parse(lbl.Text);
+                            lbl.Text = result.ToString();
+                        }
+                        num1 = Double.Parse(lbl.Text);
+                        operationNotClicked = false;
                     }
-                    if (sign1 == btnplus.Text)
+                    else if (!negateClicked || !sqrtClicked || !percentClicked || !reciprocalClicked)
                     {
-                        result = num1 + Double.Parse(lbl.Text);
-                        lbl.Text = result.ToString();
+                        txtbx.Text = txtbx.Text + " " + lbl.Text + " " + btn01.Text;
+                        operationNotClicked = false;
+                        if (sign1 == btnplus.Text)
+                        {
+                            result = num1 + Double.Parse(lbl.Text);
+                            lbl.Text = result.ToString();
+                        }
+                        else if (sign1 == btnminus.Text)
+                        {
+                            result = num1 - Double.Parse(lbl.Text); ;
+                            lbl.Text = result.ToString();
+                        }
+                        else if (sign1 == btndivide.Text)
+                        {
+                            result = num1 / Double.Parse(lbl.Text);
+                            lbl.Text = result.ToString();
+                        }
+                        else if (sign1 == btntimes.Text)
+                        {
+                            result = num1 * Double.Parse(lbl.Text);
+                            lbl.Text = result.ToString();
+                        }
+                        num1 = Double.Parse(lbl.Text);
                     }
-                    else if (sign1 == btnminus.Text)
-                    {
-                        result = num1 - Double.Parse(lbl.Text); ;
-                        lbl.Text = result.ToString();
-                    }
-                    else if (sign1 == btndivide.Text)
-                    {
-                        result = num1 / Double.Parse(lbl.Text);
-                        lbl.Text = result.ToString();
-                    }
-                    else if (sign1 == btntimes.Text)
-                    {
-                        result = num1 * Double.Parse(lbl.Text);
-                        lbl.Text = result.ToString();
-                    }
-                     num1 = Double.Parse(lbl.Text);
-                     operationNotClicked = false;
                 }
                 else if (operationNotClicked)
                 {
@@ -388,14 +428,23 @@ namespace WinFormsApp1
                     }
                     num1 = Double.Parse(lbl.Text);
                 }
-                else if (!operationNotClicked)
+                else
                 {
-                    string text, text1;
-                    text = txtbx.Text;
-                    if (text.Length > 1)
+                    if (operationNotClicked)
                     {
-                        text1 = text.Remove(text.Length - 1, 1);
-                        txtbx.Text = text1 + sign;
+                        num1 = Double.Parse(lbl.Text);
+                        txtbx.Text = txtbx.Text + " " + lbl.Text + " " + btn01.Text;
+                        operationNotClicked = false;
+                    }
+                    else
+                    {
+                        string text, text1;
+                        text = txtbx.Text;
+                        if (text.Length > 1)
+                        {
+                            text1 = text.Remove(text.Length - 1, 1);
+                            txtbx.Text = text1 + sign;
+                        }
                     }
                 }
             }
@@ -491,9 +540,12 @@ namespace WinFormsApp1
 
         private void btnmc_Click(object sender, EventArgs e)
         {
+            sqrtClicked = false;
             negateClicked = false;
+            percentClicked = false;
             mcClicked = true;
             lblm.Visible = false;
+            reciprocalClicked = false;
             store = 0;
             add = 0;
             memory = 0;
